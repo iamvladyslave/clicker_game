@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: #ffffff;
+        }
+        #game {
+            text-align: center;
+            background-color: #3b4049;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        #click-button {
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #61dafb;
+            color: #282c34;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        #click-button:hover {
+            background-color: #21a1f1;
+        }
+        #click-button:active {
+            transform: scale(0.95);
+        }
+        #score {
+            font-size: 32px;
+            margin: 10px 0;
+        }
+        #send-score {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #61dafb;
+            color: #282c34;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #send-score:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Clicker Game</h1>
+        <button id="click-button">Click me!</button>
+        <div id="score">0</div>
+        <button id="send-score">Send Score</button>
+    </div>
+
+    <script>
+        let score = 0;
+        const scoreElement = document.getElementById('score');
+        const clickButton = document.getElementById('click-button');
+        const sendScoreButton = document.getElementById('send-score');
+
+        clickButton.addEventListener('click', () => {
+            score++;
+            scoreElement.textContent = score;
+        });
+
+        sendScoreButton.addEventListener('click', () => {
+            sendScore();
+        });
+
+        // Send score to Telegram
+        function sendScore() {
+            if (window.TelegramGameProxy) {
+                TelegramGameProxy.score = score;
+                TelegramGameProxy.sendScore(score);
+            } else {
+                alert('TelegramGameProxy not found!');
+            }
+        }
+
+        // Ensure score is sent when the game is closed
+        window.addEventListener('unload', sendScore);
+    </script>
+</body>
+</html>

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game</title>
+    <title>Ai CoinClutch</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,38 +20,50 @@
         #game {
             text-align: center;
             background-color: #3b4049;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             position: relative;
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #00d4ff;
+            text-shadow: 
+                0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, /* Glowing effect */
+                -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, /* Initial black outline */
+                -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000, /* Additional layers for thicker outline */
+                -3px -3px 0 #000000, 3px -3px 0 #000000, -3px 3px 0 #000000, 3px 3px 0 #000000; /* More layers for deeper black */
         }
         #click-button {
             font-size: 0.1px;
             padding: 5px;
             margin: 20px 0;
             border: none;
-            border-radius: 50%; /* Round button */
+            border-radius: 50%;
             background-color: transparent;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
             box-shadow: 
-                0 10px 15px rgba(0, 0, 0, 0.3), /* Outer shadow for depth */
-                inset 0 5px 10px rgba(255, 255, 255, 0.1); /* Inner shadow for pressed effect */
+                0 10px 15px rgba(0, 0, 0, 0.3),
+                inset 0 5px 10px rgba(255, 255, 255, 0.1);
         }
         #click-button img {
             border-radius: 100%;
-            width: 200px; /* Reduced width */
-            height: 200px; /* Reduced height */
-            display: block; /* Ensure image fills the button */
+            width: 200px;
+            height: 200px;
+            display: block;
         }
         #click-button:active {
-            transform: scale(0.9); /* Stronger shrink on click for press effect */
+            transform: scale(0.9);
             box-shadow: 
-                0 2px 5px rgba(0, 0, 0, 0.5), /* Much stronger outer shadow on click */
-                inset 0 10px 20px rgba(255, 255, 255, 0.2); /* Much stronger inner shadow on click */
+                0 2px 5px rgba(0, 0, 0, 0.5),
+                inset 0 10px 20px rgba(255, 255, 255, 0.2);
         }
         #score, #high-score, #timer {
-            font-size: 32px;
+            font-size: 2em;
             margin: 10px 0;
         }
         #timer {
@@ -62,21 +76,21 @@
         @media (max-width: 600px) {
             #click-button {
                 box-shadow: 
-                    0 15px 20px rgba(0, 0, 0, 0.5), /* Even deeper outer shadow for depth */
-                    inset 0 10px 15px rgba(255, 255, 255, 0.1); /* Deeper inner shadow for mobile */
+                    0 15px 20px rgba(0, 0, 0, 0.5),
+                    inset 0 10px 15px rgba(255, 255, 255, 0.1);
             }
             #click-button:active {
-                transform: scale(0.85); /* Even stronger shrink on click for press effect */
+                transform: scale(0.85);
                 box-shadow: 
-                    0 5px 10px rgba(0, 0, 0, 0.7), /* Much stronger outer shadow on click */
-                    inset 0 15px 25px rgba(255, 255, 255, 0.3); /* Much stronger inner shadow on click */
+                    0 5px 10px rgba(0, 0, 0, 0.7),
+                    inset 0 15px 25px rgba(255, 255, 255, 0.3);
             }
         }
     </style>
 </head>
 <body>
     <div id="game">
-        <h1>Clicker Game</h1>
+        <h1>Ai CoinClutch</h1>
         <div id="timer">30</div>
         <button id="click-button"><img src="photo1.jpg" alt="Click Me"></button>
         <div id="score">0</div>

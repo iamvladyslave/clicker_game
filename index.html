@@ -5,37 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ai CoinClutch</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #282c34;
+            background: url('photo2.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
         }
         #game {
             text-align: center;
-            background-color: #3b4049;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             position: relative;
             width: 80%;
             max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay to ensure text readability */
         }
         h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
-            color: #00d4ff;
+            color: #0ff;
             text-shadow: 
-                0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, /* Glowing effect */
-                -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, /* Initial black outline */
-                -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000, /* Additional layers for thicker outline */
-                -3px -3px 0 #000000, 3px -3px 0 #000000, -3px 3px 0 #000000, 3px 3px 0 #000000; /* More layers for deeper black */
+                0 0 5px #0ff, 
+                0 0 10px #0ff, 
+                0 0 20px #0ff, 
+                0 0 40px #0ff, /* Glowing effect */
+                -1px -1px 0 #000, 
+                1px -1px 0 #000, 
+                -1px 1px 0 #000, 
+                1px 1px 0 #000; /* Outline */
         }
         #click-button {
             font-size: 0.1px;
@@ -48,7 +53,8 @@
             transition: transform 0.1s, box-shadow 0.1s;
             box-shadow: 
                 0 10px 15px rgba(0, 0, 0, 0.3),
-                inset 0 5px 10px rgba(255, 255, 255, 0.1);
+                inset 0 5px 10px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(0, 255, 255, 0.8); /* Emphasize the click button */
         }
         #click-button img {
             border-radius: 100%;
@@ -60,11 +66,18 @@
             transform: scale(0.9);
             box-shadow: 
                 0 2px 5px rgba(0, 0, 0, 0.5),
-                inset 0 10px 20px rgba(255, 255, 255, 0.2);
+                inset 0 10px 20px rgba(255, 255, 255, 0.2),
+                0 0 30px rgba(0, 255, 255, 1); /* More emphasis on click */
         }
         #score, #high-score, #timer {
             font-size: 2em;
             margin: 10px 0;
+            color: #0ff;
+            text-shadow: 
+                0 0 5px #0ff, 
+                0 0 10px #0ff, 
+                0 0 20px #0ff, 
+                0 0 40px #0ff; /* Glowing effect */
         }
         #timer {
             position: absolute;
@@ -77,13 +90,15 @@
             #click-button {
                 box-shadow: 
                     0 15px 20px rgba(0, 0, 0, 0.5),
-                    inset 0 10px 15px rgba(255, 255, 255, 0.1);
+                    inset 0 10px 15px rgba(255, 255, 255, 0.1),
+                    0 0 20px rgba(0, 255, 255, 0.8);
             }
             #click-button:active {
                 transform: scale(0.85);
                 box-shadow: 
                     0 5px 10px rgba(0, 0, 0, 0.7),
-                    inset 0 15px 25px rgba(255, 255, 255, 0.3);
+                    inset 0 15px 25px rgba(255, 255, 255, 0.3),
+                    0 0 30px rgba(0, 255, 255, 1);
             }
         }
     </style>

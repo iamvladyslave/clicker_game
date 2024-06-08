@@ -24,34 +24,30 @@
             position: relative;
         }
         #click-button {
-    font-size: 0.1px;
-    padding: 5px;
-    margin: 20px 0;
-    border: none;
-    border-radius: 50%; /* Сделаем кнопку полностью круглой */
-    background-color: transparent;
-    cursor: pointer;
-    
-    transition: transform 0.1s;
-    box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3), /* внешняя тень для добавления глубины */
-        inset 0 5px 10px rgba(255, 255, 255, 0.1); /* внутренняя тень для создания эффекта вдавленности */
-}
-
-#click-button img {
-    border-radius: 100%;
-    width: 300px;
-    height: 300px;
-    display: block; /* Убедимся, что картинка блочного типа, для правильного заполнения кнопки */
-}
-
-#click-button:active {
-    transform: scale(0.95); /* небольшое уменьшение при нажатии для имитации нажатия */
-    box-shadow: 
-        0 2px 5px rgba(0, 0, 0, 0.3), /* меньше тени при нажатии */
-        inset 0 2px 5px rgba(255, 255, 255, 0.1); /* внутренняя тень при нажатии */
-}
-
+            font-size: 0.1px;
+            padding: 5px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 50%; /* Round button */
+            background-color: transparent;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+            box-shadow: 
+                0 10px 15px rgba(0, 0, 0, 0.3), /* Outer shadow for depth */
+                inset 0 5px 10px rgba(255, 255, 255, 0.1); /* Inner shadow for pressed effect */
+        }
+        #click-button img {
+            border-radius: 100%;
+            width: 200px;
+            height: 200px;
+            display: block; /* Ensure image fills the button */
+        }
+        #click-button:active {
+            transform: scale(0.95); /* Slight shrink on click for press effect */
+            box-shadow: 
+                0 5px 7px rgba(0, 0, 0, 0.3), /* Reduced outer shadow on click */
+                inset 0 2px 5px rgba(255, 255, 255, 0.1); /* Stronger inner shadow on click */
+        }
         #score, #high-score, #timer {
             font-size: 32px;
             margin: 10px 0;
